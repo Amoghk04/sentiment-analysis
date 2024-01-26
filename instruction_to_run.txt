@@ -1,0 +1,6 @@
+1. Clone using -> git clone https://github.com/Amoghk04/sentiment-analysis.git
+2. Go into cmd and then to the project folder and run the commands in the following order -
+a. make deps
+b. make run
+c. make website
+The website will open and then enter the review there.
