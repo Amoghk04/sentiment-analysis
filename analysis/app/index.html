@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Analysis and Prompt Generation</title>
+  <script src="index.js"></script>
+</head>
+<body>
+
+  <label for="reviewInput">Enter the review you need to analyze:</label><br>
+  <textarea rows="4" type="text" id="reviewInput" name="reviewInput" placeholder="Enter the review here"></textarea>
+  <input type="button" name="analyse" value="analyze sentiment" onclick="analyse()">
+  <br>Review Sentiment: <output id="analysis"></output><br>
+
+  <br>
+
+  <label for="promptInput">Enter the type of prompt you want to generate a review for:</label><br>
+  <textarea rows="4" type="text" id="promptInput" name="promptInput" placeholder="Type your prompt here"></textarea>
+  <input type="button" name="analyse" value="generate">
+
+</body>
+</html>
