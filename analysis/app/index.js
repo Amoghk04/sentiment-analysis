@@ -11,8 +11,11 @@ function analyse() {
             }),
         })
         .then(response => {
-            console.log(response);
-            return response.json()})
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             console.log('Response From Flask:', data);
 
@@ -38,4 +41,34 @@ function analyse() {
         .catch(error => {
             console.error('Error sending data to Flask:', error);
         });
+}
+
+function generate() {
+    var prompt = document.getElementById('promptInput').value;
+    fetch('http://127.0.0.1:5000',
+    {
+        method: "POST",
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+            prompt: prompt
+        }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(review => {
+        console.log('Response From Flask: ', review.response);
+
+        const responseData = review.response ? review.response : "No response returned from the model"
+
+        document.getElementById('response').textContent = responseData;
+    })
+    .catch(error => {
+        console.error('Error sending data to Flask: ',error)
+    })
 }
