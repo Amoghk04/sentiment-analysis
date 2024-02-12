@@ -47,7 +47,7 @@ function analyse() {
 
 function generate() {
     var prompt = document.getElementById('promptInput').value;
-    fetch('https://sentiment-analysis-spwi.vercel.app/',
+    fetch('http://127.0.0.1:5000',
     {
         method: "POST",
         headers: {
