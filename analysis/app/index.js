@@ -38,7 +38,7 @@ function analyse() {
 
             document.getElementById('analysis').textContent = "";
 
-            document.getElementById('analysis').textContent = sentiment;
+            document.getElementById('analysis').textContent = sentiment+" - "+ ((highestScorelabel.score)*100).toFixed(2)+"%";
         })
         .catch(error => {
             console.error('Error sending data to Flask:', error);
@@ -47,7 +47,7 @@ function analyse() {
 
 function generate() {
     var prompt = document.getElementById('promptInput').value;
-    fetch('http://127.0.0.1:5000',
+    fetch('https://sentiment-analysis-spwi.vercel.app/',
     {
         method: "POST",
         headers: {
@@ -69,7 +69,7 @@ function generate() {
 
         const responseData = review.response ? review.response : "No response returned from the model"
 
-        document.getElementById('response').textContent = responseData;
+        document.getElementById('response').textContent = "\n" + responseData;
     })
     .catch(error => {
         console.error('Error sending data to Flask: ',error)
